@@ -1,64 +1,78 @@
+# ANTES DE TODO EDER CHIPI Y CHIZITO :V 
 
+# IMC Control Master
 
-### Backend
+IMC Control Master es una aplicación para registrar y controlar el índice de masa corporal (IMC) de los usuarios.
 
-- **app.py**: Entry point of the Flask application, initializes the app and sets up the database connection.
-- **models.py**: Defines SQLAlchemy models, including the `ControlPesoAltura` model for weight and height control data.
-- **routes.py**: Contains API routes for user authentication, data retrieval, and data insertion.
-- **requirements.txt**: Lists the dependencies required for the backend.
-- **README.md**: Documentation for the backend, including setup instructions and API usage.
+## Instalación
 
-### Frontend
+Sigue estos pasos para instalar y configurar el proyecto:
 
-- **public/index.html**: Main HTML file for the Vue.js application.
-- **src/assets**: Contains static assets such as images and stylesheets.
-- **src/components**: Contains Vue components:
-  - **Login.vue**: Login component for user authentication.
-  - **Summary.vue**: Displays graphs and statistics from the control data.
-  - **Form.vue**: Form for inputting control data for the current date.
-- **src/router/index.js**: Sets up Vue Router for navigation.
-- **src/store/index.js**: Configures Vuex for state management.
-- **src/views**: Contains view components:
-  - **Home.vue**: Main dashboard view.
-  - **Login.vue**: View for the login component.
-- **src/App.vue**: Root component of the Vue.js application.
-- **src/main.js**: Entry point for the Vue.js application.
-- **package.json**: Configuration file for npm.
-- **babel.config.js**: Babel configuration for the Vue.js application.
+### Prerrequisitos
 
-## Setup Instructions
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
+- Virtualenv (opcional, pero recomendado)
 
-### Backend
+### Clonar el repositorio
 
-1. Navigate to the `backend` directory.
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Run the Flask application:
-   ```
-   python app.py
-   ```
+```bash
+git clone https://github.com/BufonMestizo/app_imc/tree/main
+cd imc-control-master
+```
 
-### Frontend
+### Crear y activar un entorno virtual (opcional)
 
-1. Navigate to the `frontend` directory.
-2. Install the required dependencies:
-   ```
-   npm install
-   ```
-3. Run the Vue.js application:
-   ```
-   npm run serve
-   ```
+```bash
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+```
 
-## Usage
+### Instalar dependencias
 
-- Access the application through the frontend URL provided after running the Vue.js application.
-- Use the login page to authenticate users.
-- View the summary of weight and height control data with visually appealing graphs.
-- Insert new control data using the provided form.
+```bash
+pip install -r requirements.txt
+```
 
-## License
+### Configurar la base de datos
 
-This project is licensed under the MIT License.
+Asegúrate de tener una base de datos configurada y actualiza la configuración en el archivo `config.py` si es necesario.
+
+### Ejecutar la aplicación
+
+```bash
+export FLASK_APP=backend
+export FLASK_ENV=development
+flask run
+```
+
+En Windows:
+
+```bash
+set FLASK_APP=backend
+set FLASK_ENV=development
+flask run
+```
+
+La aplicación estará disponible en `http://127.0.0.1:5000`.
+
+## Endpoints
+
+- `POST /register`: Registrar un nuevo usuario.
+- `POST /login`: Iniciar sesión.
+- `GET /summary`: Obtener un resumen de todos los registros de IMC.
+- `POST /insert`: Insertar un nuevo registro de IMC.
+
+## Contribuir
+
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva funcionalidad'`).
+4. Sube tus cambios a tu fork (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
